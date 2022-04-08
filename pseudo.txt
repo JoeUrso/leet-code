@@ -1,0 +1,6 @@
+Problem 2
+
+turn all the numbers in l1 into one number
+turn all the numbers in l2 into one number
+Add those numbers
+Turn the total back into an array and reverse it
