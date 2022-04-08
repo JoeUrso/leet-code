@@ -8,6 +8,8 @@ Turn the total back into an array and reverse it
 
 Problem 9
 
-
+Take a number
+reverse it
+Check to see if the reversed number === original number
 
 
