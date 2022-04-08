@@ -35,6 +35,13 @@ var isPalindrome = function (x) {
 
 // BEST SOLUTION
 // Use a varibale to reverse number then check with given number
+// For instance, if x = 123
+// you loop through 123
+// the Math.Floor part will give you 12 (12.3 rounded down), then 1 (1.2 rounded down) as it loops - think of this as the loop "holding" the 12 and then the 1 to be referenced on the next loop
+// The statement will give you the previous rev times 10 (so 0 the first time, 3 the second time, 2 the third) plus the remainder of the number being held
+// So on the first pass, rev will be changed to 3 (0+3)
+// Second pass rev will be changed to 32 (30 + 2)
+// The third pass rev will be changed to 321 (320 + 1)
 
 // var isPalindrome = function(x) {
 //   if (x < 0) return false
