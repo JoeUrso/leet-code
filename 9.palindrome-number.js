@@ -43,3 +43,9 @@ var isPalindrome = function (x) {
 //   for(let i = x; i >= 1; i = Math.floor(i/10)) rev = rev*10 + i%10
 //   return rev === x
 // };
+
+// BETTER WAY TO DO YOUR ANSWER
+// var isPalindrome = function (x) {
+//     let reversed = x.toString().split("").reverse().join("");
+//     return x === +reversed;
+// };
