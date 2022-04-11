@@ -12,4 +12,11 @@ Take a number
 reverse it
 Check to see if the reversed number === original number
 
+-------------------------------------------------------
+Problem 13 
+
+Split the string into an array
+For each numeral, assign it the proper integer value
+Add proper checks to account for numbers like 4, 40, etc
+
 
