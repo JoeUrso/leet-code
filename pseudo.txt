@@ -19,4 +19,9 @@ Split the string into an array
 For each numeral, assign it the proper integer value
 Add proper checks to account for numbers like 4, 40, etc
 
+--------------------------------------------------------
+Problem 14
 
+Take strs[0] and compare its first letter to the first letters of all other indexs
+If they're all similar, do the same for the second lett of each
+return "" if nothing matches, or return the answer
