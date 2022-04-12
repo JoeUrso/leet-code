@@ -9,8 +9,5 @@
  * @param {string[]} strs
  * @return {string}
  */
-var longestCommonPrefix = function(strs) {
-    
-};
+var longestCommonPrefix = function (strs) {};
 // @lc code=end
-
