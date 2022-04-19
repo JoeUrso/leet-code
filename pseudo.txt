@@ -28,3 +28,9 @@ Problem 20
 ?
 
 ----------------------------------------------------------
+Problem 21
+?
+----------------------------------------------------------
+Problem 26
+
+Use reduce, if current value === previous value, arr.shift(element[i-1])
