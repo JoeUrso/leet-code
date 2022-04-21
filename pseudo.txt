@@ -33,4 +33,7 @@ Problem 21
 ----------------------------------------------------------
 Problem 26
 
-Use reduce, if current value === previous value, arr.shift(element[i-1])
+Loop through array keeping track of previous and current values
+If previous === current, use shift
+if previous !== current, use shift and push what you shifted
+How to stop when finished?
