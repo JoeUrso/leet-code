@@ -44,7 +44,7 @@ var removeDuplicates = function (nums) {
 //         nums.shift[0]
 //     }
 
-// Other idea?
+// Other ideas?
 // var removeDuplicates = function (nums) {
 
 //     for (i = 0; i < nums.length; i++) {
@@ -60,6 +60,21 @@ var removeDuplicates = function (nums) {
 //     };
 //     };
 // }
+
+//     return nums;
+// };
+
+// var removeDuplicates = function (nums) {
+//     nums.reduce((previousValue, currentValue) => {
+//         if (previousValue === currentValue) {
+//             nums.shift(nums[0]);
+//             console.log(nums)
+//         } else if (previousValue !== currentValue) {
+//             let numToPush = nums.shift(nums[0]);
+//             nums.push(numToPush)
+//             console.log(nums)
+//         }
+//     });
 
 //     return nums;
 // };
