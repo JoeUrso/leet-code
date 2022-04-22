@@ -18,6 +18,6 @@ var removeElement = function (nums, val) {
         }
     }
 
-    return nums;
+    return nums.length;
 };
 // @lc code=end
