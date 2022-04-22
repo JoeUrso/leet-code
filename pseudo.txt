@@ -40,3 +40,7 @@ if next !== current, increment items to remove and push current to end or array
 When done looping, use a while loop to shift all necessary items
 ------------------------------------------------------------
 Problem 27
+
+Loop through the array
+If number at that index === val, then use splice to delete it
+--------------------------------------------------------------
