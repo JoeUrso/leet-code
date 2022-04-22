@@ -33,7 +33,9 @@ Problem 21
 ----------------------------------------------------------
 Problem 26
 
-Loop through array keeping track of previous and current values
-If previous === current, use shift
-if previous !== current, use shift and push what you shifted
-How to stop when finished?
+Loop through array keeping track of current and next values
+use a variable to keep track of items to remove
+If next === current, increment items to remove
+if next !== current, increment items to remove and push current to end or array
+When done looping, use a while loop to shift all necessary items
+------------------------------------------------------------
