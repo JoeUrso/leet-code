@@ -33,3 +33,26 @@ var removeDuplicates = function (nums) {
     return nums;
 };
 // @lc code=end
+
+// BEST SOLUTIONS
+
+// Mutating the array via indexs
+// var removeDuplicates = function(nums) {
+//     let i = 0;
+//     for (let j = 0; j < nums.length; j++) {
+//         if (nums[j] != nums[i])
+//             nums[++i] = nums[j];
+//     }
+//     return ++i;
+// };
+
+// Using splice
+// var removeDuplicates = function(nums) {
+//     for (i = 0; i < nums.length; i++) {
+//         //Next number is identical to current one
+//         if (nums[i] == nums[i+1]) {
+//             nums.splice(i, 1);
+//             i--;
+//         }
+//     }
+// };
