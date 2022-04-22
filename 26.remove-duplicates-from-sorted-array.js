@@ -30,7 +30,7 @@ var removeDuplicates = function (nums) {
         itemsToRemove--;
     }
 
-    return nums;
+    return nums.length;
 };
 // @lc code=end
 
