@@ -44,3 +44,14 @@ Problem 27
 Loop through the array
 If number at that index === val, then use splice to delete it
 --------------------------------------------------------------
+Problem 28
+
+Figure out if needle is empty string, if so return 0
+figure out if needle is in haystack, if not return -1
+If so, find the index of first occurrence and return
+
+Split needle and haystack into arrays
+Loop through the haystack array, when one of its elements === needle[0], save that index in variable
+Then check to see if the next index === needle[2] and so one
+Eventually, you'll know if needle is in haystack
+return the saved index variable
