@@ -19,83 +19,54 @@
 // GetMaxAllTime:
 //   Return max
 
-const dayTemps = [];
-let total = 0;
-
-const log = (temperature) => {
-    dayTemps.push(temperature);
-    total += temperature;
-
-    if (dayTemps.length > 86400) {
-        total -= dayTemps.shift();
+class TemperatureTracker {
+    constructor() {
+        this.temperatureLog = [];
     }
-};
 
-const avg = (dayTemps) => {
-    // let output = dayTemps.reduce((acc, curr) => {
-    //   let total = acc + curr
-    //   let count = 0
+    log(temperature) {
+        const currentTime = Date.now();
+        this.temperatureLog.push({ temperature, timestamp: currentTime });
+        this.cleanup();
+    }
 
-    //   count++
+    cleanup() {
+        const currentTime = Date.now();
+        this.temperatureLog = this.temperatureLog.filter(
+            (entry) => currentTime - entry.timestamp <= 24 * 60 * 60 * 1000
+        );
+    }
 
-    //   return total / count
-
-    // }, 0)
-
-    // count is arr.length
-    //
-
-    // let total = 0
-    // let count = 0
-
-    // for (let i = 0; i < dayTemps.length; i++) {
-    //   total += dayTemps[i]
-    //   count++
-    // }
-
-    // return total / count
-
-    return total / dayTemps.length;
-};
-
-// ... 24hr
-// log(100)
-
-const range = (dayTemps) => {
-    // 22 -> 20-30
-    // 24 -> 20-30
-    // 30 -> 30-40
-    // 55 -> 50-60
-    // -1 -> -10-0
-
-    let output = dayTemps.reduce((acc, curr) => {
-        let convert = Math.floor(curr / 10);
-
-        if (acc[convert]) {
-            acc[convert * 10]++;
-        } else {
-            acc[convert * 10] = 1;
+    getAverageLast24Hours() {
+        let sum = 0;
+        let count = 0;
+        const currentTime = Date.now();
+        for (const entry of this.temperatureLog) {
+            if (currentTime - entry.timestamp <= 24 * 60 * 60 * 1000) {
+                sum += entry.temperature;
+                count++;
+            }
         }
+        return count === 0 ? null : sum / count;
+    }
 
-        return acc;
-    }, {});
-
-    return output;
-};
-
-// log , avg
-log(1); // total -> 1
-log(0); // total -> 1
-log(1); // total -> 2
-log(-1); // total -> 1
-console.log(avg(dayTemps)); // -> 0.25
-console.log(range(dayTemps));
-
-for (var i = 0; i < 86400; i++) {
-    log(10);
+    getTemperatureDistribution() {
+        const distribution = {};
+        const currentTime = Date.now();
+        for (const entry of this.temperatureLog) {
+            if (currentTime - entry.timestamp <= 24 * 60 * 60 * 1000) {
+                const bucket = Math.floor(entry.temperature / 10) * 10;
+                distribution[bucket] = (distribution[bucket] || 0) + 1;
+            }
+        }
+        return distribution;
+    }
 }
 
-// total -> 864000
-// log(11) -> 864001
-console.log(avg(dayTemps)); // -> 10
-console.log(range(dayTemps));
+// Example usage
+const tracker = new TemperatureTracker();
+tracker.log(23);
+tracker.log(30);
+tracker.log(35);
+console.log(tracker.getAverageLast24Hours());
+console.log(tracker.getTemperatureDistribution());
